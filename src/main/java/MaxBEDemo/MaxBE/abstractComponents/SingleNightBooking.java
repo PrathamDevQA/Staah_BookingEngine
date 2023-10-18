@@ -29,9 +29,9 @@ public class SingleNightBooking {
 	    arr.add(checkoutMonthYear);
 	    String checkoutDateFormatted = checkOutDate.format(DateTimeFormatter.ofPattern("d"));
 	    arr.add(checkoutDateFormatted);
-	    String apiCheckInDateProvider = checkInDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	    String apiCheckInDateProvider = checkInDate.format(DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy"));
 	    arr.add(apiCheckInDateProvider);
-	    String apiCheckoutDateProvider = checkOutDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	    String apiCheckoutDateProvider = checkOutDate.format(DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy"));
 	    arr.add(apiCheckoutDateProvider);
 	    arr.add(Integer.toString(randomNight));     // Add random nights to the last index of arr
 	    LocalDate apiCheckInDateProviderPlusOneDay = checkInDate.plusDays(1);
