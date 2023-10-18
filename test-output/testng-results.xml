@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-18T07:20:44 IST" name="Default suite" finished-at="2023-10-18T07:20:53 IST" duration-ms="8784">
+  <suite started-at="2023-10-18T09:07:01 IST" name="Default suite" finished-at="2023-10-18T09:07:34 IST" duration-ms="32306">
     <groups>
     </groups>
-    <test started-at="2023-10-18T07:20:44 IST" name="Default test" finished-at="2023-10-18T07:20:53 IST" duration-ms="8784">
+    <test started-at="2023-10-18T09:07:01 IST" name="Default test" finished-at="2023-10-18T09:07:34 IST" duration-ms="32306">
       <class name="MaxBEDemo.MaxBE.pageTest.LandingPageTest">
-        <test-method is-config="true" signature="lunchApplication()[pri:0, instance:MaxBEDemo.MaxBE.pageTest.LandingPageTest@4007f65e]" started-at="2023-10-18T07:20:44 IST" name="lunchApplication" finished-at="2023-10-18T07:20:52 IST" duration-ms="7453" status="PASS">
+        <test-method is-config="true" signature="lunchApplication()[pri:0, instance:MaxBEDemo.MaxBE.pageTest.LandingPageTest@52f27fbd]" started-at="2023-10-18T09:07:01 IST" name="lunchApplication" finished-at="2023-10-18T09:07:12 IST" duration-ms="10402" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- lunchApplication -->
-        <test-method signature="listingPageTest()[pri:0, instance:MaxBEDemo.MaxBE.pageTest.LandingPageTest@4007f65e]" started-at="2023-10-18T07:20:52 IST" name="listingPageTest" finished-at="2023-10-18T07:20:53 IST" duration-ms="1214" status="PASS">
+        <test-method signature="listingPageTest()[pri:0, instance:MaxBEDemo.MaxBE.pageTest.LandingPageTest@52f27fbd]" started-at="2023-10-18T09:07:12 IST" name="listingPageTest" finished-at="2023-10-18T09:07:34 IST" duration-ms="21710" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- listingPageTest -->
-        <test-method is-config="true" signature="tearsDown()[pri:0, instance:MaxBEDemo.MaxBE.pageTest.LandingPageTest@4007f65e]" started-at="2023-10-18T07:20:53 IST" name="tearsDown" finished-at="2023-10-18T07:20:53 IST" duration-ms="82" status="PASS">
+        <test-method is-config="true" signature="tearsDown()[pri:0, instance:MaxBEDemo.MaxBE.pageTest.LandingPageTest@52f27fbd]" started-at="2023-10-18T09:07:34 IST" name="tearsDown" finished-at="2023-10-18T09:07:34 IST" duration-ms="132" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearsDown -->

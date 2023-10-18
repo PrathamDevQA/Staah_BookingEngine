@@ -26,15 +26,25 @@ public class LandingPage extends BEAbstractComponents{
 	@FindBy(xpath = "//body/div[@class='container bg']/div[@class='be-main']/div/form[@role='form']/div[1]")
 	private WebElement datePicker;
 	
+	@FindBy(xpath = "/html/body/div[4]/div[3]/div/form/div[4]/div/label")
+	private WebElement extraGuestBtn;
+	
+	@FindBy(xpath = "/html/body/div[4]/div[3]/div/form/div[4]/div/div/div/div[1]/div/span[2]")
+	private WebElement inAdult;
+	
+	@FindBy(xpath = "/html/body/div[4]/div[3]/div/form/div[4]/div/div/div/div[2]/div/span[2]")
+	private WebElement inChild;
+	
 	@FindBy(xpath = "//input[@name='submit']")
 	private WebElement searchBtn;
+	
 	
 	public void goToBEsite() {
 		driver.get("https://max2uatbe.staah.net/be/indexpackdetail?propertyId=NTc1OA==&individual=true");
 	}
 	
 	
-	public void single_room_Single_Night_Booking() {
+	public void single_room_Single_Night_Booking() throws InterruptedException {
 		BigDecimal sum = new BigDecimal("0.00");
 		ArrayList<String> randomDate = singleNightBooking.singleNightBooking();
 		String checkInMonthYear = randomDate.get(0);
@@ -61,8 +71,12 @@ public class LandingPage extends BEAbstractComponents{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		datePicker.click();
-		
+//		datePicker.click();
+		extraGuestBtn.click();
+		inAdult.click();
+		inChild.click();
+		searchBtn.click();
+		Thread.sleep(20000);
 	}
 	
 

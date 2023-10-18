@@ -12,7 +12,6 @@ public class LandingPageTest extends BEBaseTest{
 	public void listingPageTest() throws IOException, InterruptedException {
 		
 		LandingPage landingPage = new LandingPage(driver);
-		landingPage.goToBEsite();
 		landingPage.single_room_Single_Night_Booking();
 		
 	}

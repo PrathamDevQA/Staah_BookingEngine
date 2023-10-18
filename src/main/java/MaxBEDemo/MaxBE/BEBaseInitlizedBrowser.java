@@ -20,7 +20,7 @@ public class BEBaseInitlizedBrowser {
 	public WebDriver initBrowser() throws IOException {
 
 		Properties props = new Properties();
-		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\java\\MaxBEDemo\\MaxBE\\resources\\GlobalData.properties");
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/MaxBEDemo/MaxBE/resources/GlobalData.properties");
 		props.load(fis);
 
 		String browserName = System.getProperty("bowser") != null ? System.getProperty("browser")
