@@ -42,6 +42,9 @@ public class LandingPage extends BEAbstractComponents {
 	@FindBy(xpath = "//input[@name='submit']")
 	private WebElement searchBtn;
 	
+	@FindBy(css = "div[class='current-price-main 2'] p[class='current-price']")
+	private WebElement perNightRate;
+	
 	private int noAdult = 1;
 	private int noChild = 0;
 
@@ -77,26 +80,17 @@ public class LandingPage extends BEAbstractComponents {
 			e.printStackTrace();
 		}
 		datePicker.click();
-		driver.findElement(By.xpath("//td[@aria-label='Choose "+apiCheckInDate+" as your check-in date']")).click();
-		//td[@aria-label='Selected as check-in date, Wednesday, October 18, 2023']
-		//td[@aria-label='Choose Friday, October 27, 2023 as your check-in date']
-		//td[contains(@class,'datepicker__month-day--tmp datepicker__month-day--first-day-selected')]
-		Thread.sleep(5000);
-		
+		driver.findElement(By.xpath("//td[@aria-label='Choose "+apiCheckInDate+" as your check-in date']")).click();	
 		driver.findElement(By.xpath("//td[@aria-label='Choose "+apiCheckoutDate+" as your check-out date']")).click();
-		//td[@aria-label='Choose Thursday, October 19, 2023 as your check-out date']
-		//td[contains(@aria-label,'Choose Saturday, October 21, 2023 as your check-out date')]
 		
-		extraGuestBtn.click();
-		while(noAdult != 3) {
-			inAdult.click();
-			noAdult++;
-		}
-		while(noChild != 1) {
-			inChild.click();
-			noChild++;
-		}
+		/*
+		 * extraGuestBtn.click(); while(noAdult != 3) { inAdult.click(); noAdult++; }
+		 * while(noChild != 1) { inChild.click(); noChild++; }
+		 */
+	
 		searchBtn.click();
+		
+		System.out.println(perNightRate.getText());
 		Thread.sleep(20000);
 	}
 
