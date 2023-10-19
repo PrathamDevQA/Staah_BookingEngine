@@ -80,6 +80,7 @@ public class LandingPage extends BEAbstractComponents {
 			e.printStackTrace();
 		}
 		datePicker.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//td[@aria-label='Choose "+apiCheckInDate+" as your check-in date']")).click();	
 		driver.findElement(By.xpath("//td[@aria-label='Choose "+apiCheckoutDate+" as your check-out date']")).click();
 		
@@ -90,8 +91,10 @@ public class LandingPage extends BEAbstractComponents {
 	
 		searchBtn.click();
 		
-		System.out.println(perNightRate.getText());
-		Thread.sleep(20000);
+	}
+	
+	public String getPerNightRate() {
+		return perNightRate.getText();
 	}
 
 }

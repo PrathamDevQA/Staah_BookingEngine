@@ -1,6 +1,8 @@
 package MaxBEDemo.MaxBE.pageTest;
 
 import java.io.IOException;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import MaxBEDemo.MaxBE.pageObject.LandingPage;
@@ -13,10 +15,8 @@ public class LandingPageTest extends BEBaseTest{
 		
 		LandingPage landingPage = new LandingPage(driver);
 		landingPage.single_room_Single_Night_Booking();
+		Assert.assertTrue(landingPage.getPerNightRate().contains("INR"));;
 		
 	}
 	
-	
-	
-
 }
