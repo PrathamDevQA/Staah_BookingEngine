@@ -1,5 +1,6 @@
 package MaxBEDemo.MaxBE.testComponent;
 
+
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,7 @@ import com.aventstack.extentreports.Status;
 
 import MaxBEDemo.MaxBE.resources.ExtentReportsBE;
 
-public class Listeners extends BEBaseTest implements ITestListener {
+public class BEListeners extends BEBaseTest implements ITestListener {
 
 	ExtentTest test;
 	ExtentReports extent = ExtentReportsBE.getReportObject();
@@ -21,7 +22,7 @@ public class Listeners extends BEBaseTest implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
-		test = extent.createTest(result.getMethod().getMethodName()).log(Status.PASS, "Demo");
+		test = extent.createTest(result.getMethod().getMethodName()).log(Status.PASS, result.getName());
 		extentTest.set(test);// unique thread id(ErrorValidationTest)->test
 	}
 
