@@ -22,6 +22,10 @@ public class BEBaseInitlizedBrowser {
 		Properties props = new Properties();
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/MaxBEDemo/MaxBE/resources/GlobalData.properties");
 		props.load(fis);
+		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox allow-same-origin; default-src 'self';");
+		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
+		System.clearProperty("hudson.model.DirectoryBrowserSupport.CSP");
+		System.getProperty("hudson.model.DirectoryBrowserSupport.CSP");
 
 		String browserName = System.getProperty("bowser") != null ? System.getProperty("browser")
 				: props.getProperty("browser");
@@ -40,15 +44,14 @@ public class BEBaseInitlizedBrowser {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}
+		
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 //		driver.get("https://staahmax.staah.net/be/indexpackdetail?propertyId=NTc1OA==&individual=true");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox allow-same-origin; default-src 'self';");
-		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
-		System.clearProperty("hudson.model.DirectoryBrowserSupport.CSP");
-		System.getProperty("hudson.model.DirectoryBrowserSupport.CSP");
+		
 		return driver;
 	}
 
