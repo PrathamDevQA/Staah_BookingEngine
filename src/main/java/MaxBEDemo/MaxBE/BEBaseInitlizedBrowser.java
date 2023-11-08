@@ -36,7 +36,8 @@ public class BEBaseInitlizedBrowser {
 			if(browserName.contains("headless")) {
 				ops.addArguments("--headless");
 			}
-			driver = new ChromeDriver();
+			ops.addArguments("--headless");
+			driver = new ChromeDriver(ops);
 		}else if(browserName.contains("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
