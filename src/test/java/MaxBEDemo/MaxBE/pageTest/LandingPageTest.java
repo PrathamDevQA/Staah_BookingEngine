@@ -17,6 +17,7 @@ public class LandingPageTest extends BEBaseTest{
 		
 		LandingPage landingPage = new LandingPage(driver);
 		landingPage.single_room_Single_Night_Booking();
+		System.out.println("++++++++++++++++++++++++++++++++++++++++");
 		Assert.assertTrue(landingPage.getPerNightRate().contains("PRA"));
 		
 	}

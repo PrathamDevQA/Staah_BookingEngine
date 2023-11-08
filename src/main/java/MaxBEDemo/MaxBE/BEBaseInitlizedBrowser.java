@@ -40,15 +40,15 @@ public class BEBaseInitlizedBrowser {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}
-		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox allow-same-origin; default-src 'self';");
-		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
-		System.clearProperty("hudson.model.DirectoryBrowserSupport.CSP");
-		System.getProperty("hudson.model.DirectoryBrowserSupport.CSP");
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 //		driver.get("https://staahmax.staah.net/be/indexpackdetail?propertyId=NTc1OA==&individual=true");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox allow-same-origin; default-src 'self';");
+		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
+		System.clearProperty("hudson.model.DirectoryBrowserSupport.CSP");
+		System.getProperty("hudson.model.DirectoryBrowserSupport.CSP");
 		return driver;
 	}
 
