@@ -31,13 +31,13 @@ public class BEBaseInitlizedBrowser {
 				: props.getProperty("browser");
 		
 		if(browserName.contains("chrome")) {
-			ChromeOptions ops = new ChromeOptions();
+//			ChromeOptions ops = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
-			if(browserName.contains("headless")) {
-				ops.addArguments("--headless");
-			}
-			ops.addArguments("--headless");
-			driver = new ChromeDriver(ops);
+			/*
+			 * if(browserName.contains("headless")) { ops.addArguments("--headless"); }
+			 */
+//			ops.addArguments("--headless");
+			driver = new ChromeDriver();
 		}else if(browserName.contains("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
