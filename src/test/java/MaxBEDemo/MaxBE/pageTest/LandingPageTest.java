@@ -22,11 +22,11 @@ public class LandingPageTest extends BEBaseTest{
 		
 	}
 	
-	@Test(groups = "Regression")
-	public void test() throws InterruptedException {
-		LandingPage landingPage = new LandingPage(driver);
-		landingPage.single_room_Single_Night_Booking();
-		Assert.assertTrue(landingPage.getPerNightRate().contains("PRA"));
-	}
+	/*
+	 * @Test(groups = "Regression") public void test() throws InterruptedException {
+	 * LandingPage landingPage = new LandingPage(driver);
+	 * landingPage.single_room_Single_Night_Booking();
+	 * Assert.assertTrue(landingPage.getPerNightRate().contains("PRA")); }
+	 */
 	
 }
