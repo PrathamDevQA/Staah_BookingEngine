@@ -49,10 +49,7 @@ public class BEBaseInitlizedBrowser {
 //		driver.get("https://staahmax.staah.net/be/indexpackdetail?propertyId=NTc1OA==&individual=true");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "sandbox allow-same-origin; default-src 'self';");
-		System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "");
-		System.clearProperty("hudson.model.DirectoryBrowserSupport.CSP");
-		System.getProperty("hudson.model.DirectoryBrowserSupport.CSP");
+	
 		
 		return driver;
 	}
