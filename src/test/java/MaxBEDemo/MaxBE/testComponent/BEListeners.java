@@ -46,8 +46,8 @@ public class BEListeners extends BEBaseTest implements ITestListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
-		extentTest.get().addScreenCaptureFromBase64String(filePath, result.getMethod().getMethodName());
+		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+//		extentTest.get().addScreenCaptureFromBase64String(filePath, result.getMethod().getMethodName());
 	}
 
 	@Override
