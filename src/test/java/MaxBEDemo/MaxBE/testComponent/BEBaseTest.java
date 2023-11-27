@@ -37,7 +37,7 @@ public class BEBaseTest {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-		String path =System.getProperty("user.dir") + "/reports/" + testCaseName + ".png";
+		String path = System.getenv("WORKSPACE") + "/reports/" + testCaseName + ".png";
 		File file = new File(path);
 		try {
 		FileUtils.copyFile(source, file);
