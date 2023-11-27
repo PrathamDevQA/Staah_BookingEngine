@@ -9,7 +9,6 @@
       <class name="MaxBEDemo.MaxBE.pageTest.LandingPageTest">
         <methods>
           <include name="lunchApplication"/>
-          <include name="test"/>
           <include name="tearsDown"/>
           <include name="listingPageTest"/>
         </methods>

@@ -18,7 +18,7 @@ public class BEBaseTest {
 	public WebDriver driver;
 	BEBaseInitlizedBrowser init = new BEBaseInitlizedBrowser();
 	LandingPage landingPage = new LandingPage(driver);
-	
+
 	@BeforeMethod
 	public LandingPage lunchApplication() throws IOException {
 		driver = init.initBrowser();
@@ -26,25 +26,27 @@ public class BEBaseTest {
 		landingPage.goToBEsite();
 		return landingPage;
 	}
-	
-	
+
 	@AfterMethod(alwaysRun = true)
 	public void tearsDown() {
 		driver.close();
 	}
-	
+
 	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
 
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		String path = System.getenv("WORKSPACE") + "/reports/" + testCaseName + ".png";
-		File file = new File(path);
+		String screenshotPath = null;
 		try {
-		FileUtils.copyFile(source, file);
-		} catch(IOException e) {
-			System.out.println("Capture failed"+e.getMessage());
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			File sourceF = ts.getScreenshotAs(OutputType.FILE);
+			String path = System.getProperty("user.dir") + "/reports/" + testCaseName + ".png";
+			File file = new File(path);
+			String[] reletivePAth = file.toString().split("reports");
+			FileUtils.copyFile(sourceF, file);
+			screenshotPath = ".\\" + reletivePAth[1];
+		} catch (IOException e) {
+			System.out.println("Capture failed" + e.getMessage());
 		}
-		return path;
+		return screenshotPath;
 
 	}
 
