@@ -1,6 +1,5 @@
 package MaxBEDemo.MaxBE.testComponent;
 
-
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -11,8 +10,11 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import MaxBEDemo.MaxBE.resources.ExtentReportsBE;
+import freemarker.log.Logger;
 
 public class BEListeners extends BEBaseTest implements ITestListener {
 
@@ -34,20 +36,23 @@ public class BEListeners extends BEBaseTest implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		extentTest.get().fail(result.getThrowable());//
+		extentTest.get().fail(result.getThrowable());
 		try {
-			driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+			this.driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		String filePath = null;
+
+//		String filePath = null;
 		try {
-			filePath = getScreenshot(result.getMethod().getMethodName(), driver);
+			String filePath = getScreenshot(result.getMethod().getMethodName(), driver);
+			extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+
 		} catch (IOException e) {
+
 			e.printStackTrace();
 		}
-		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
-//		extentTest.get().addScreenCaptureFromBase64String(filePath, result.getMethod().getMethodName());
+
 	}
 
 	@Override
@@ -65,10 +70,9 @@ public class BEListeners extends BEBaseTest implements ITestListener {
 	@Override
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
 	@Override
 	public void onFinish(ITestContext context) {
 		extent.flush();

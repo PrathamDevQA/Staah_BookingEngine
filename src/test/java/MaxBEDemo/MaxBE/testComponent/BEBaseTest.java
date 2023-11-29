@@ -2,12 +2,13 @@ package MaxBEDemo.MaxBE.testComponent;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.ScreenshotException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -34,20 +35,17 @@ public class BEBaseTest {
 
 	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
 
-		String screenshotPath = null;
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		String desination = System.getProperty("user.dir") + "/reports/" + testCaseName+ dateName + ".png";
+		File file = new File(desination);
 		try {
-			TakesScreenshot ts = (TakesScreenshot) driver;
-			File sourceF = ts.getScreenshotAs(OutputType.FILE);
-			String path = System.getProperty("user.dir") + "/reports/" + testCaseName + ".png";
-			File file = new File(path);
-			String[] reletivePAth = file.toString().split("reports");
-			FileUtils.copyFile(sourceF, file);
-			screenshotPath = ".\\" + reletivePAth[1];
+			FileUtils.copyFile(source, file);
 		} catch (IOException e) {
-			System.out.println("Capture failed" + e.getMessage());
+			e.printStackTrace();
 		}
-		return screenshotPath;
-
+		return desination;
 	}
 
 }
