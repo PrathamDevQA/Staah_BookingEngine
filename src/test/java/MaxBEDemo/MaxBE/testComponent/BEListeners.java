@@ -18,9 +18,9 @@ import freemarker.log.Logger;
 
 public class BEListeners extends BEBaseTest implements ITestListener {
 
-	ExtentTest test;
-	ExtentReports extent = ExtentReportsBE.getReportObject();
-	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+	private ExtentTest test;
+	private ExtentReports extent = ExtentReportsBE.getReportObject();
+	private ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
 	@Override
 	public void onTestStart(ITestResult result) {

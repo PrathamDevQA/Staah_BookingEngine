@@ -5,6 +5,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.ExtentSparkReporterConfig;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentReportsBE {
@@ -17,6 +18,7 @@ public class ExtentReportsBE {
 		
 		String path = System.getProperty("user.dir") + "//reports//spark.html";
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+//		reporter.config(ExtentSparkReporterConfig.builder().theme(Theme.DARK).documentTitle("Extetn Reprt").build());
 		reporter.config().setCss("css-string");
 		reporter.config().setEncoding("utf-8");
 		reporter.config().setJs("js-string");
